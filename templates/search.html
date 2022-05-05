@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="/static/Style/style.css">
+      {{ bootstrap.load_css() }}
+
+      <title>Search for Movies!</title>
+  </head>
+<body>
+      <h1>Search for movies here</h1>
+      <h2>Select a movie to learn more!</h2>
+    <br>
+    <div class="container">
+      <form method="post" id="form" action="/search">
+        <input type="text" name="query"/>
+        <br>
+        <button>Search</button>
+      </form
+    </div>
+    <script src="/static/Scripts/script.js"></script>
+</body>
+
+</html>
