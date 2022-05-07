@@ -6,7 +6,7 @@ import json
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
-omdb_api_url = 'http://www.omdbapi.com/'
+OMDB_API_URL = 'http://www.omdbapi.com/'
 
 
 @app.route('/')
@@ -16,15 +16,17 @@ def home():
 
 @app.route('/search', methods=['GET', 'POST'])
 def search_page():
+    # return search page
     if request.method == 'GET':
         return render_template('search.html')
-    elif request.method == 'POST':
-        api_key = "b9a0cb14"
-        title = request.form['query']
-        params = {'apikey': api_key, 's': title}
-        data = fetch_data(omdb_api_url, params)
-        print(data)
-        return render_template('results.html', results=data)
+
+    # return search results
+    api_key = "b9a0cb14"
+    title = request.form['query']
+    params = {'apikey': api_key, 's': title}
+    data = fetch_data(OMDB_API_URL, params)
+    print(data)
+    return render_template('results.html', results=data['Search'])
 
 # get json data from site and return it
 # param:    url: url to get response from
