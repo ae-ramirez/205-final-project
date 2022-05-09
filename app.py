@@ -5,8 +5,8 @@ import json
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
-
 OMDB_API_URL = 'http://www.omdbapi.com/'
+OMDB_API_KEY = "b9a0cb14"
 
 
 @app.route('/')
@@ -21,9 +21,8 @@ def search_page():
         return render_template('search.html')
 
     # return search results
-    api_key = "b9a0cb14"
     title = request.form['query']
-    params = {'apikey': api_key, 's': title}
+    params = {'apikey': OMDB_API_KEY, 's': title}
     data = fetch_data(OMDB_API_URL, params)
     print(data)
     return render_template('search.html', results=data['Search'])
