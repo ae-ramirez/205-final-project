@@ -15,9 +15,28 @@
     <div class="container">
       <form method="post" id="form" action="/search">
         <input type="text" name="query"/>
-        <br>
+        <br><br>
         <button>Search</button>
-      </form
+      </form>
+      <br>
+
+      <!-- search results -->
+      {% if results %}
+      {% for movie in results %}
+      <div class="row">
+        <img src={{ movie['Poster'] }} height="250"><br>
+        <div class="col-sm-2">
+          Title: {{ movie['Title'] }} <br>
+          Year: {{ movie['Year'] }} <br>
+          imdbID: {{ movie['imdbID'] }} <br>
+          Type: {{ movie['Type'] }} <br>
+        </div>
+      </div>
+      <hr>
+      {% endfor %}
+      {% endif %}
+      <!-- search results -->
+
     </div>
     <script src="/static/Scripts/script.js"></script>
 </body>

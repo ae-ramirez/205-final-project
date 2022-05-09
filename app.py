@@ -26,7 +26,7 @@ def search_page():
     params = {'apikey': api_key, 's': title}
     data = fetch_data(OMDB_API_URL, params)
     print(data)
-    return render_template('results.html', results=data['Search'])
+    return render_template('search.html', results=data['Search'])
 
 # get json data from site and return it
 # param:    url: url to get response from
