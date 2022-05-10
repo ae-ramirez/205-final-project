@@ -6,7 +6,9 @@ import json
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 OMDB_API_URL = 'http://www.omdbapi.com/'
-OMDB_API_KEY = "b9a0cb14"
+OMDB_API_KEY = 'b9a0cb14'
+IMDB_API_URL = 'https://imdb-api.com/en/API/'
+IMDB_API_KEY = 'k_peu1q0jh'
 
 
 @app.route('/')
@@ -27,9 +29,21 @@ def search_page():
     print(data)
     return render_template('search.html', results=data['Search'])
 
+
+@app.route('/movie/<imdbID>')
+def movie_info(imdbID):
+    # might be able to scrape the trailer using the imdb id
+    # although theres probably a better way of getting the trailer
+    url = IMDB_API_URL + 'Trailer/' + IMDB_API_KEY + '/' + imdbID
+    data = fetch_data(url)
+    print(data)
+
+    return render_template('movie.html', movie_info=data)
+
+
 # get json data from site and return it
 # param:    url: url to get response from
 # return:   returns the api response as a dictionary
-def fetch_data(url, parameters):
+def fetch_data(url, parameters=""):
     response = requests.get(url, params=parameters)
     return response.json()

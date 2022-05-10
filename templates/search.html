@@ -24,11 +24,12 @@
       {% if results %}
       {% for movie in results %}
       <div class="row">
-        <img src={{ movie['Poster'] }} height="250"><br>
+        <a href="{{ url_for('movie_info', imdbID=movie['imdbID']) }}">
+          <img src={{ movie['Poster'] }} height="250"><br>
+        </a>
         <div class="col-sm-2">
           Title: {{ movie['Title'] }} <br>
           Year: {{ movie['Year'] }} <br>
-          imdbID: {{ movie['imdbID'] }} <br>
           Type: {{ movie['Type'] }} <br>
         </div>
       </div>

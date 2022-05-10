@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/static/Style/style.css">
+    {{ bootstrap.load_css() }}
+    <title>{{ movie_info['title'] }}</title>
+  </head>
+  <body>
+    <h1>Movie Info</h1><br>
+    <div class="container">
+      {% if movie_info %}
+      {{ movie_info['videoTitle'] }}<br>
+      <div class="row">
+        <!-- this iframe does not want to display the video right, why idk -->
+        <iframe src='{{ movie_info["linkEmbed"] }}' width="800" height="270" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="no" scrolling="no">
+        </iframe>
+      </div>
+      <br><br>
+      <div class="row">
+        Title: {{ movie_info['fullTitle'] }} <br>
+        Year: {{ movie_info['year'] }} <br>
+        Type: {{ movie_info['type'] }} <br>
+      </div>
+      {% else %}
+      <!-- error has occured -->
+      Info is not available, try again later
+      {% endif %}
+    </div>
+  </body>
+</html>
