@@ -14,14 +14,17 @@
       {{ movie_info['videoTitle'] }}<br>
       <div class="row">
         <!-- this iframe does not want to display the video right, why idk -->
-        <iframe src='{{ movie_info["linkEmbed"] }}' width="800" height="270" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="no" scrolling="no">
+        <iframe src='{{ movie_info["t"]["linkEmbed"] }}' width="800" height="500" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="yes" scrolling="no">
         </iframe>
       </div>
       <br><br>
       <div class="row">
-        Title: {{ movie_info['fullTitle'] }} <br>
-        Year: {{ movie_info['year'] }} <br>
-        Type: {{ movie_info['type'] }} <br>
+        <b>Title:</b> {{ movie_info['t']['fullTitle'] }} <br> <br>
+        <b>Year:</b> {{ movie_info['t']['year'] }} <br><br>
+        <b>Type:</b> {{ movie_info['t']['type'] }} <br><br>
+        <b>imDb:</b> {{ movie_info['r']['imDb']}} <br><br>
+        <b>Rotten Tomatoes:</b> {{ movie_info['r']['rottenTomatoes']}} <br><br>
+        <b> Meta Critic:</b> {{ movie_info['r']['metacritic']}} <br>
       </div>
       {% else %}
       <!-- error has occured -->

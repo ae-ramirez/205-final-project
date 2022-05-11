@@ -25,12 +25,36 @@
       {% for movie in results %}
       <div class="row">
         <a href="{{ url_for('movie_info', imdbID=movie['imdbID']) }}">
-          <img src={{ movie['Poster'] }} height="250"><br>
+          <img src="{{ movie['Poster'] }}" height="250"><br>
         </a>
         <div class="col-sm-2">
           Title: {{ movie['Title'] }} <br>
           Year: {{ movie['Year'] }} <br>
           Type: {{ movie['Type'] }} <br>
+          <div id="{{movie['imdbID']}}">
+            <script>
+              updateRatngs();
+async function updateRatings()
+{
+    let url = "https://imdb-api.com/en/API/Ratings/k_peu1q0jh/{{movie['imdbID']}}";
+    console.log("{{movie['imdb']}}");
+    let myDiv = document.getElementById(id);
+    let data = await fetchData(url);
+    myDiv.innerHTML =
+    `<b>imDb: </b>${data['imDb']} <br>
+    <b>Rotten Tomatoes: </b>${data['rottenTomatoes']} <br>
+    <b> Meta Critic:</b> ${data['metacritic']} <br>`;
+    console.log("successful");
+}
+
+async function fetchData(url){
+	let response = await fetch(url);
+	let data = await response.json();
+	// console.log(data);
+	return data;
+}
+            </script> 
+          </div>
         </div>
       </div>
       <hr>
@@ -39,7 +63,7 @@
       <!-- search results -->
 
     </div>
-    <script src="/static/Scripts/script.js"></script>
+    
 </body>
 
 </html>

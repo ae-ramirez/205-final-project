@@ -37,8 +37,11 @@ def movie_info(imdbID):
     url = IMDB_API_URL + 'Trailer/' + IMDB_API_KEY + '/' + imdbID
     data = fetch_data(url)
     print(data)
+    url2= IMDB_API_URL + 'Ratings/' + IMDB_API_KEY + '/' + imdbID
+    data2=fetch_data(url2)
+    print(data2)
 
-    return render_template('movie.html', movie_info=data)
+    return render_template('movie.html', movie_info={"t":data, "r":data2})
 
 
 # get json data from site and return it
