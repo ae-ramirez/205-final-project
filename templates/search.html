@@ -29,8 +29,10 @@
         <a href="{{ url_for('movie_info', imdbID=movie['imdbID']) }}">
           <img src="{{ movie['Poster'] }}" height="250"><br>
         </a>
-        <div class="col-sm-2, list">
-          Title: {{ movie['Title'] }} <br>
+        <div class="col-sm-2, list" style="padding-left:15px;">
+          <b style='font-size: 1.2rem;'>
+            {{ movie['Title'] }} <br>
+          </b>
           Year: {{ movie['Year'] }} <br>
           Type: {{ movie['Type'] }} <br>
           <div id="ratings">
