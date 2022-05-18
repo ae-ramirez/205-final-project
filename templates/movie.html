@@ -7,13 +7,13 @@
     {{ bootstrap.load_css() }}
     <title>{{ movie_info['t']['title'] }}</title>
   </head>
-  <body>
+  <body style="background-color:#1C1C1C;">
     {% include "header.html" %}
-    <h1>Movie Info</h1><br>
     <div class="container">
+    <h1 style="center;color:#F5F5F5;margin-bottom:25px;">Movie Info</h1><br>
       {% if movie_info %}
-      {{ movie_info['t']['videoTitle'] }}<br>
-      <div class="info">
+      <div class="info" style="color:#F5F5F5">
+        {{ movie_info['t']['videoTitle'] }}<br>
         <b> Title: </b> {{ movie_info['t']['fullTitle'] }} <br>
         <b> Year: </b> {{ movie_info['t']['year'] }} <br>
         <b> Type: </b> {{ movie_info['t']['type'] }} <br>
@@ -24,8 +24,7 @@
         <iframe src='{{ movie_info["t"]["linkEmbed"] }}' width="800" height="500" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="yes" scrolling="no">
         </iframe>
       </div>
-      <div class="row, info">
-
+      <div class="row, info" style="color:#F5F5F5">
         <b> imDb: </b> {{ movie_info['r']['imDb']}} <br>
         <b>Rotten Tomatoes:</b> {{ movie_info['r']['rottenTomatoes']}} <br>
         <b> Meta Critic:</b> {{ movie_info['r']['metacritic']}} <br>
