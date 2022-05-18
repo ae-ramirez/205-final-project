@@ -10,7 +10,16 @@
   <body style="background-color:#1C1C1C;">
     {% include "header.html" %}
     <div class="container">
-    <h1 style="center;color:#F5F5F5;margin-bottom:25px;">Movie Info</h1><br>
+      <br>
+      <div style="display:flex;">
+        <h1 style="center;color:#F5F5F5;margin-bottom:25px;width:40%;">Movie Info</h1>
+        <form method="post" id="form" class="search" action="/search">
+          <div style='margin:10px;'>
+            <input type="text" size="30" name="query" placeholder="Search"/>
+            <button style="margin-left: 10px;">Search</button>
+          </div>
+        </form>
+      </div>
       {% if movie_info %}
       <div class="info" style="color:#F5F5F5">
         {{ movie_info['t']['videoTitle'] }}<br>
