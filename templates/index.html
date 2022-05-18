@@ -9,12 +9,14 @@
       <title>Movies!</title>
   </head>
 <body>
-      <h1>Future Title</h1>
-      <h2>Select a movie to learn more!</h2>
-    <br>
-      <h3><i>Note: If someone could work on the css and website look, Ill start the API work sometime this week - erik</i></h3>
-    <div class="container">
-    </div>
+     
+      <img src="/static/Images/filmalley.png" height="250px" class="title">
+      <h2>Please type in a movie to learn more!</h2><hr>
+    <form method="post" id="form"  class="search" action="/search">
+      <input type="text" name="query"/>
+      <button>Search</button>
+    </form>
+
     <script src="/static/Scripts/script.js"></script>
 </body>
 

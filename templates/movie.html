@@ -5,25 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/static/Style/style.css">
     {{ bootstrap.load_css() }}
-    <title>{{ movie_info['title'] }}</title>
+    <title>{{ movie_info['t']['title'] }}</title>
   </head>
   <body>
     <h1>Movie Info</h1><br>
     <div class="container">
       {% if movie_info %}
-      {{ movie_info['videoTitle'] }}<br>
+      {{ movie_info['t']['videoTitle'] }}<br>
+      <div class="info">
+        <b> Title: </b> {{ movie_info['t']['fullTitle'] }} <br>
+        <b> Year: </b> {{ movie_info['t']['year'] }} <br>
+        <b> Type: </b> {{ movie_info['t']['type'] }} <br>
+        <br>
+      </div>
       <div class="row">
         <!-- this iframe does not want to display the video right, why idk -->
         <iframe src='{{ movie_info["t"]["linkEmbed"] }}' width="800" height="500" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="yes" scrolling="no">
         </iframe>
       </div>
-      <br><br>
-      <div class="row">
-        <b>Title:</b> {{ movie_info['t']['fullTitle'] }} <br> <br>
-        <b>Year:</b> {{ movie_info['t']['year'] }} <br><br>
-        <b>Type:</b> {{ movie_info['t']['type'] }} <br><br>
-        <b>imDb:</b> {{ movie_info['r']['imDb']}} <br><br>
-        <b>Rotten Tomatoes:</b> {{ movie_info['r']['rottenTomatoes']}} <br><br>
+      <div class="row, info">
+
+        <b> imDb: </b> {{ movie_info['r']['imDb']}} <br>
+        <b>Rotten Tomatoes:</b> {{ movie_info['r']['rottenTomatoes']}} <br>
         <b> Meta Critic:</b> {{ movie_info['r']['metacritic']}} <br>
       </div>
       {% else %}

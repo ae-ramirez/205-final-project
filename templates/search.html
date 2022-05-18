@@ -10,10 +10,10 @@
   </head>
 <body>
       <h1>Search for movies here</h1>
-      <h2>Select a movie to learn more!</h2>
+      <h2>Then select a movie to learn more!</h2>
     <br>
     <div class="container">
-      <form method="post" id="form" action="/search">
+      <form method="post" id="form" class="search" action="/search">
         <input type="text" name="query"/>
         <br><br>
         <button>Search</button>
@@ -21,49 +21,54 @@
       <br>
 
       <!-- search results -->
+      <div class="container">
       {% if results %}
       {% for movie in results %}
       <div class="row">
         <a href="{{ url_for('movie_info', imdbID=movie['imdbID']) }}">
           <img src="{{ movie['Poster'] }}" height="250"><br>
         </a>
-        <div class="col-sm-2">
+        <div class="col-sm-2, list">
           Title: {{ movie['Title'] }} <br>
           Year: {{ movie['Year'] }} <br>
           Type: {{ movie['Type'] }} <br>
-          <div id="{{movie['imdbID']}}">
+          <div id="ratings">
             <script>
-              updateRatngs();
-async function updateRatings()
-{
-    let url = "https://imdb-api.com/en/API/Ratings/k_peu1q0jh/{{movie['imdbID']}}";
-    console.log("{{movie['imdb']}}");
-    let myDiv = document.getElementById(id);
-    let data = await fetchData(url);
-    myDiv.innerHTML =
-    `<b>imDb: </b>${data['imDb']} <br>
-    <b>Rotten Tomatoes: </b>${data['rottenTomatoes']} <br>
-    <b> Meta Critic:</b> ${data['metacritic']} <br>`;
-    console.log("successful");
-}
+              await fun();
+              async function fun(){
+                alert("working");
+                let url = "https://imdb-api.com/en/API/Ratings/k_peu1q0jh/{{movie['imdbID']}}";
+                //console.log("{{movie['imdb']}}");
+                let myDiv = document.getElementById("#ratings");
+                let data = await fetchData(url);
+                //alert(data);
+                //salert("not");
+                // myDiv.innerHTML =
+                // `<b>imDb: </b>${data['imDb']} <br>
+                // <b>Rotten Tomatoes: </b>${data['rottenTomatoes']} <br>
+                // <b> Meta Critic:</b> ${data['metacritic']} <br>`;
+                myDiv.innerHTML = "working";
 
-async function fetchData(url){
-	let response = await fetch(url);
-	let data = await response.json();
-	// console.log(data);
-	return data;
-}
-            </script> 
+              }
+
+              async function fetchData(url){
+              let response = await fetch(url);
+              let data = await response.json();
+              // console.log(data);
+              return data;
+            }
+            </script>
           </div>
         </div>
       </div>
       <hr>
       {% endfor %}
       {% endif %}
+    </div>
       <!-- search results -->
 
     </div>
-    
+    <script src="/static/Scripts/script.js"></script> 
 </body>
 
 </html>

@@ -1,7 +1,14 @@
 body{
 	text-align: center;
+	display:block;
 	padding: 10px;
-	font-size: 20px;
+	background-image: url("/static/Images/curtains.png");
+	background-repeat: no-repeat;
+	background-color: red;
+	height:1100px;
+	background-size: cover;
+	background-position: center;
+	
 }
 
 
@@ -16,5 +23,51 @@ nav{
 }
 
 h1{
-  font-size: 60px;
+  font-size: 80px;
+  text-align: center;
+  color:beige;
 }
+h2{
+	text-align: center;
+	color:beige;
+}
+h3{
+	text-align: center;
+	color:beige;
+}
+
+.title{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 65%;
+}
+
+/* .search{
+	/* margin-left: auto;
+	margin-right: auto;
+	margin: 5%;} */
+ 
+form {
+	margin-left: 25%;
+    margin-right:25%;
+    width: 50%;
+}
+
+
+.info{
+	text-align: center;
+	color:beige;
+}
+
+.list{
+	color:beige;
+}
+
+.container{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 65%;
+}
+

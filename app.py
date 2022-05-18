@@ -40,6 +40,8 @@ def movie_info(imdbID):
     url2= IMDB_API_URL + 'Ratings/' + IMDB_API_KEY + '/' + imdbID
     data2=fetch_data(url2)
     print(data2)
+    # params = {'apikey': OMDB_API_KEY, 'i':imdbID}
+    # data3 = fetch_data(OMDB_API_URL, params)
 
     return render_template('movie.html', movie_info={"t":data, "r":data2})
 
