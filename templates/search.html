@@ -25,7 +25,7 @@
       <div class="container">
       {% if results %}
       {% for movie in results %}
-      <div class="row">
+      <div class="row" style="border-radius:5px; padding:10px;margin-bottom:10px;background-color:#F9F9F9;">
         <a href="{{ url_for('movie_info', imdbID=movie['imdbID']) }}">
           <img src="{{ movie['Poster'] }}" height="250"><br>
         </a>
@@ -64,7 +64,6 @@
           </div>
         </div>
       </div>
-      <hr>
       {% endfor %}
       {% endif %}
     </div>
