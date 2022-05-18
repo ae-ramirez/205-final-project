@@ -1,3 +1,8 @@
+"""
+github:
+https://github.com/ae-ramirez/205-final-project
+"""
+
 from flask import Flask, render_template, url_for, request
 from flask_bootstrap import Bootstrap
 import requests
@@ -9,11 +14,6 @@ OMDB_API_URL = 'http://www.omdbapi.com/'
 OMDB_API_KEY = 'b9a0cb14'
 IMDB_API_URL = 'https://imdb-api.com/en/API/'
 IMDB_API_KEY = 'k_peu1q0jh'
-
-"""
-github link:
-https://github.com/ae-ramirez/205-final-project
-"""
 
 
 @app.route('/')
