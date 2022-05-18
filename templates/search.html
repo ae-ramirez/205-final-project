@@ -8,15 +8,14 @@
 
       <title>Search for Movies!</title>
   </head>
-<body>
-  {% include "header.html" %}
-      <h1>Search for movies here</h1>
-      <h2>Then select a movie to learn more!</h2>
+  <body style="background-color:#1C1C1C;">
+    {% include "header.html" %}
     <br>
-    <div class="container">
+    <h1 style="text-align:center;color:#F5F5F5;">Search for your new favorite movies!</h1>
+    <div class="container" style='background-color:#FFFFFF;border:1px solid #BABBAE;border-radius:5px;padding:10px;margin-top:50px;'>
       <form method="post" id="form" class="search" action="/search">
-        <div>
-          <input type="text" size="50" name="query" placeholder="Your favorite movie"/>
+        <div style='margin:10px;'>
+          <input type="text" size="50" name="query" placeholder="Search"/>
           <button style="margin-left: 10px;">Search</button>
         </div>
       </form>
